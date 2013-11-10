@@ -1,0 +1,24 @@
+.tilepopup {
+	overflow: hidden;
+	margin: -351px -251px;
+	border: 1px double black;
+	border-radius: 8px;
+	vertical-align: middle;
+	width: 600px;
+	min-height:400px;
+	align: center;
+	left: 50%;
+	top:50%;
+	position: absolute;
+	background-color:white;
+	display: block;
+	z-index: 20;
+	padding: 15px;
+	box-shadow: 5px 5px 10px #888888;
+}
+.browsershadow {
+	height: 2000px;
+	width 1500px;
+	z-index: 20;
+	background-color: rgba(40,40,40,.4);
+}

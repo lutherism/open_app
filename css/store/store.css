@@ -1,0 +1,116 @@
+      .banner {
+				overflow: hidden;
+				width: 770px;
+				margin: 0px -1px;
+				height: 256px;
+				display: block;
+				box-shadow: 0px 5px 5px -5px #cccccc;
+      }
+			.fronttiles {
+				height:600px;
+				margin-top:5px;
+				overflow-y:scroll;
+				border-bottom: 1px solid #00adee;
+				z-index:10;
+				overflow: -moz-scrollbars-vertical;
+			}
+			.bodywrap {
+			}
+			.foot {
+				background-color:white;
+			}
+			.storebody {
+				margin: 0 auto;
+				clear: both;
+				width: 1000px;
+			}
+      .tray {
+        overflow: hidden;
+				border-bottom: 1px solid #00adee;
+        vertical-align: middle;
+        width: 768px;
+        display: block-inline;	
+      }
+      .catagories {
+				overflow: hidden;
+				margin: 2px;
+				text-align: left;
+				width: 120px;
+				height: 120px;
+				padding: 0;
+      }
+      .store {
+				display:inline-block;
+				position: absolute;
+				width: 768px;
+				height:100%;
+				border-right: 1px solid #00adee;
+				border-left: 1px solid #00adee;
+				background-color:#eff5fa;
+				box-shadow: 0px 5px 10px -3px #111111;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				cursor:default;
+      }
+			.traybutton_add {
+				height: 20px;
+				border: 2px solid #00ff53;
+				border-radius: 4px;
+				background-color: white;
+				text-align: center;
+				color: #00ff53;
+				float: right;
+				padding-left:5px;
+				padding-right:5px;
+				margin-top:10px;
+				margin-right:10px;
+				display:inline-block;
+				font-family: 'Open Sans', sans-serif;	
+			}
+			.searchbar {
+				height: 20px;
+				width: 150px;
+				border: 1px solid #00adee;
+				border-radius: 10px;
+				color: #00adee;
+				float:right;
+				margin-right: 5px;
+				display: inline-block;
+				background-color: white;
+				box-shadow: 0px 0px 2px 0px #cccccc inset;
+			}
+			.traybutton_remove {
+				height: 20px;
+				float: right;
+				margin-top:10px;
+				margin-right:10px;
+				border: 2px solid #ff5400;
+				border-radius: 4px;
+				background-color: white;
+				text-align: center;
+				color: #ff5400;
+				padding-left:5px;
+				padding-right:5px;
+				padding-bottom:0px;
+				display:inline-table;
+				font-family: 'Open Sans', sans-serif;	
+			}
+			.opensans {
+				font-family: 'Open Sans', sans-serif;
+				color:#333333;
+			}
+			span {
+				font-family: 'Open Sans', sans-serif;
+				color: #333333;
+			}
+			.options {
+				cursor:default;
+				padding: 15px 5px;
+				width:100px;
+				height:100px;
+				float: left;
+}

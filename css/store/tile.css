@@ -1,0 +1,69 @@
+     	.tile {
+        overflow: hidden;
+				box-sizing:initial;
+        margin: 10px;
+        border: 1px solid #00adee;
+				border-radius: 8px;
+        vertical-align: middle;
+        width: 342px;
+				background-color:#fff;
+        height: 201px;
+        display: inline-block;
+				float: left;
+				padding: 10px 10px;
+				box-shadow: 0px 0px 10px 0px #cccccc;
+      }
+			.btn-tile {
+				margin-top: 6px;
+				color:#333333;
+				font-family: 'Open Sans', sans-serif;
+			}
+			.downloadbtn {
+				height: initial;
+				border: 2px solid #ff5400;
+				border-radius: 4px;
+				background-color: white;
+				text-align: center;
+				color: #ff5400;
+				position:absolute;
+				width:134px;
+				left: 8px;
+				bottom:0px;
+				padding-bottom:0px;
+				font-family: 'Open Sans', sans-serif;	
+			}
+			.tiletitle {
+				width: 332px;
+				top: -5px;
+				position: relative;
+			}
+			.tileprofile {
+				width: 180px;
+				height: 180px;
+				display:inline;
+				border: 1px solid #cccccc;
+				border-radius:5px;
+				position:relative;
+			}
+			.datacol {
+				font-size: 12px;
+				width: 100%;
+				height: 140px;
+				overflow:scroll;
+				white-space:pre;
+				border:1px solid #cccccc;
+				border-radius:3px;
+			}
+			.tileinfo{
+				width:320px;
+				height: 180px;
+				display: inline;
+			}
+			div {
+				box-sizing: initial;
+			}
+			.tileclose{
+				position: absolute;
+				width: 100px;
+				right: 0px;
+			}

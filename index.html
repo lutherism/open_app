@@ -1,0 +1,137 @@
+<html> 
+  <head> 
+<!-- The template to display files available for upload -->
+    <style>
+			a.option_ {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 12px;
+				display: inline-block;
+				margin: 3px;
+				user-select:none;
+			}
+                        .browsershadow {
+				width: 100%;
+				height: 200%
+				background-color: rbga(10,10,10,.6);
+				position:absolute;
+                  	}
+			.option_on {
+				background-color: rgba(0,173,238,1);
+				height: 18px;
+				border-radius: 3px;
+				display: inline-block;
+				padding: 3px;
+				font-size: 12px;
+				font-family: 'Open Sans', sans-serif;
+				color: white;
+				box-shadow: 0px 0px 10px -3px #111111;
+			}
+			.option_off {	
+				background-color: rgba(120,150,238,0);
+				height: 18px;
+				border-radius: 3px;
+				display: inline-block;
+				padding: 3px;
+				font-size: 12px;
+				font-family: 'Open Sans', sans-serif;
+				color: #00adee;
+			}
+      			.menu {
+				overflow:hidden;
+				margin: 0px;
+				border-bottom: 1px solid black;
+				padding:10px;
+				width: 100%;
+				display: block;
+				background-color: #cccccc;
+			}
+    </style>
+		
+		<!Javascript imports>
+		<script src="./js/fileupload/jquery.js"></script>
+		<script src="/js/vendor/jquery.ui.widget.js"></script>
+		<script src="http://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+		<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
+		<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+		<script src="/js/fileupload/jquery.iframe-transport.js"></script>
+		<script src="/js/fileupload/jquery.fileupload.js"></script>
+		<script src="/js/fileupload/jquery.fileupload-process.js"></script>
+		<script src="/js/fileupload/jquery.fileupload-image.js"></script>
+		<script src="/js/fileupload/jquery.fileupload-audio.js"></script>
+		<script src="/js/fileupload/jquery.fileupload-video.js"></script>
+		<script src="/js/fileupload/jquery.fileupload-validate.js"></script>
+		<script src="/js/fileupload/jquery.fileupload-ui.js"></script>
+    <script src="./js/store/main.js"></script>
+   	<script src="./js/store/tile.js"></script>
+		<script src="./js/store/thumb.js"></script>
+		<script src='./js/upload_robot.js'></script>
+		<script src='./js/requirejs/require.js'></script>
+		<script src='./js/store/load_bots.js'></script>
+		<script src='./js/menu/menu.js'></script>
+		<script src='./js/account/account.js'></script>
+    <script> 
+    $(function(){
+      $("#includedContent").load("./html/store/main.html");
+			$(document).ready(pageload.account());
+			$(document).ready(pageload.menu());
+			$(document).ready(pageload.store());
+    });
+    </script> 
+		<!CSS Imports>
+<!-- Bootstrap styles -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<!-- Generic page styles -->
+		<link rel="stylesheet" href="./css/fileupload/style.css">
+<!-- blueimp Gallery styles -->
+		<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+		<link href='./css/store/robot_upload.css' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link href='./css/store/store.css' rel='stylesheet' type='text/css'/>
+		<link href='./css/store/tile.css' rel='stylesheet' type='text/css'/>
+		<link href='./css/store/thumb.css' rel='stylesheet' type='text/css'/>
+		<link href='./css/account/account.css' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" href="./css/fileupload/jquery.fileupload.css">
+		<link rel="stylesheet" href="./css/fileupload/jquery.fileupload-ui.css">
+		<!Font Imports>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300' rel='stylesheet' type='text/css'>
+  </head> 
+  <body id="mainpage" style="background-color:#b3b7bb">
+	<div id="bodywrapper" class="bodywrap">
+	<div id="body" class="storebody">
+    <div class="store">
+			<img class="banner" src="./images/store/walk_banner.jpg"></img>
+			<div class="tray" id="tr01" style='background-color:white;box-shadow: 0px 5px 10px -5px #cccccc;'>
+				<div class="options">
+						<div style="display:inline-block;">
+								<div class="option_on">Utility</div><br>
+								<div class="option_off">Kitchen</div><br>
+								<div class="option_off">Toy</div><br>
+								<div class="option_off">Mobile</div><br>
+						</div>
+						<div style="display:inline-block; position:absolute">
+								<div class="option_off">Sport</div><br>
+								<div class="option_off">Education</div><br>
+								<div class="option_off">Medical</div><br>
+								<div class="option_off">Misc</div>
+						</div>
+				</div>
+			</div>
+			<div class="tray" id="tr02" style="border-bottom:0px; padding-top:10px;">
+				<div style='height: 20px; display:inline;'><div id='tileoptions' style="cursor:default;display:inline-block;">
+					<div class="option_on" style="margin-left: 10px;">Hot</div>
+					<div class="option_off">Alphabetic</div>
+					<div class="option_off">New</div></div>
+					<div style="width: 5px;display:inline;float:right;height:20px;"></div>
+				</div>
+				<div class="searchbar"> <i style="margin:1px 6px;" class="glyphicon glyphicon-search"></i>
+        </div>
+    	</div>
+			<div id="tr03" class="fronttiles"></div>
+	</div>
+	</div>
+	</div>
+  </body> 
+</html>
