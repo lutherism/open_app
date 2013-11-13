@@ -15,23 +15,18 @@
 
 $(function () {
     'use strict';
-
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
-        //Uncomment the following to send cross-domain cookies:
+    //Uncomment the following to send cross-domain cookies:
     //xhrFields: {withCredentials: true},
-      url: 'http://data.openrobot.net/robot_imgs/'
-		});
+      url: 'http://data.openrobot.net/update/'
+                });
     // Enable iframe cross-domain access via redirect option:
     $('#fileupload').fileupload(
         'option',
         'redirect',
         'http://data.openrobot.net/cors/result.html'
     );
-
-		$('#fileupload').bind('fileuploaddone', function (e, data) {
-			$('.hiddengroup').val(data.files[0].name);
-		});
 
     if (window.location.hostname === 'blueimp.github.io') {
         // Demo settings:
@@ -72,5 +67,5 @@ $(function () {
             $(this).fileupload('option', 'done')
             .call(this, $.Event('done'), {result: result});
         });
-	} 
+        } 
 });

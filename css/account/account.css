@@ -7,6 +7,23 @@
 	display: inline-block;
 	box-shadow: 0px 0px 10px -3px #111111
 }
+.usr_group {
+	width:170px;
+	display: block;
+	font-size:12px;
+	cursor: pointer;
+	margin-left:8px;
+	padding: 2px 5px;
+	border-left:1px solid #cccccc;
+}
+.usr_saves {
+	width:150px;
+	display: none;
+	font-size:12px;
+	border-left:1px solid #cccccc;
+	margin-left:10px;
+	padding-left:5px;
+}
 .acttray {
 	border-bottom: 1px dashed #cccccc;
 	padding: 3px;
@@ -40,4 +57,10 @@
 	margin:5px 0px;
 	width: 188px;
 	display:block;
+}
+.listname{
+	font-size:8px;
+}
+.robotname{
+	font-size:8px;
 }

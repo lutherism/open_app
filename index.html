@@ -1,6 +1,7 @@
+
 <html> 
   <head> 
-<!-- The template to display files available for upload -->
+	<!TODO- This should be in a css file>
     <style>
 			a.option_ {
 				font-family: 'Open Sans', sans-serif;
@@ -9,12 +10,12 @@
 				margin: 3px;
 				user-select:none;
 			}
-                        .browsershadow {
+      .browsershadow {
 				width: 100%;
 				height: 200%
 				background-color: rbga(10,10,10,.6);
 				position:absolute;
-                  	}
+     	}
 			.option_on {
 				background-color: rgba(0,173,238,1);
 				height: 18px;
@@ -36,7 +37,7 @@
 				font-family: 'Open Sans', sans-serif;
 				color: #00adee;
 			}
-      			.menu {
+    	.menu {
 				overflow:hidden;
 				margin: 0px;
 				border-bottom: 1px solid black;
@@ -49,6 +50,7 @@
 		
 		<!Javascript imports>
 		<script src="./js/fileupload/jquery.js"></script>
+		<script src='./jso/jso.js'></script>
 		<script src="/js/vendor/jquery.ui.widget.js"></script>
 		<script src="http://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
 		<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
@@ -66,17 +68,26 @@
     <script src="./js/store/main.js"></script>
    	<script src="./js/store/tile.js"></script>
 		<script src="./js/store/thumb.js"></script>
-		<script src='./js/upload_robot.js'></script>
+		<script src='./js/store/upload_robot.js'></script>
 		<script src='./js/requirejs/require.js'></script>
 		<script src='./js/store/load_bots.js'></script>
 		<script src='./js/menu/menu.js'></script>
 		<script src='./js/account/account.js'></script>
-    <script> 
+    <!Some onload init commands, TODO:move to main.js>
+		<script> 
     $(function(){
       $("#includedContent").load("./html/store/main.html");
 			$(document).ready(pageload.account());
 			$(document).ready(pageload.menu());
 			$(document).ready(pageload.store());
+		$(document).ready(jso_configure({
+			"openrobot": {
+			client_id: "ostore",
+			redirect_uri: "http://store.openrobot.net/",
+			authorization: "http://oauth.openrobot.net/authorization.php",
+			presenttoken: "qs"
+			}
+		}));
     });
     </script> 
 		<!CSS Imports>
@@ -98,9 +109,11 @@
 		<!Font Imports>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300' rel='stylesheet' type='text/css'>
   </head> 
-  <body id="mainpage" style="background-color:#b3b7bb">
+<!full page centering containters>
+<body id="mainpage" style="background-color:#b3b7bb">
 	<div id="bodywrapper" class="bodywrap">
 	<div id="body" class="storebody">
+		<!Main Store UI TODO-move to own html file>
     <div class="store">
 			<img class="banner" src="./images/store/walk_banner.jpg"></img>
 			<div class="tray" id="tr01" style='background-color:white;box-shadow: 0px 5px 10px -5px #cccccc;'>

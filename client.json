@@ -1,0 +1,6 @@
+{
+client_id: 'open_store',
+redirect_uri: 'http://store.openrobot.net',
+authorize: 'http://oauth.openrobot.net/',
+presenttoken: 'qs'
+}

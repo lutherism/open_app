@@ -1,0 +1,12 @@
+
+<?php
+if(isset($_SESSION['views']))
+  unset($_SESSION['views']);
+session_destroy();
+ ?>
+
+<html>
+<body>
+You succesfully logged out.
+</body>
+</html>

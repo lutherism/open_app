@@ -1,5 +1,6 @@
 var loadrobots = {
  loader: function (){
+	//define and call GET request for JSON of all robots in table
   var url="./php/store/load_bots.php";
   var robots;
   $.getJSON(url,function(json){

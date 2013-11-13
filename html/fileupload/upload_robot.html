@@ -31,16 +31,16 @@
 
 <!Data upload>
 
-<form id="fileupload" style="padding:15px;" action="http://data.openrobot.net/upload/newrobot.php" method="POST" enctype="multipart/form-data">
+<form action:"http://data.openrobot.net/upload/newrobot" method:"POST" id="fileupload" style="padding:15px;">
 	<div class="form-group">
 		<label for="inputRobotName">Robot Name</label>
-		<input type="text" class="form-control" name="inputRobotName" placeholder="Enter the robot's name">
+		<input type="text" class="form-control" id="inputRobotName" placeholder="Enter the robot's name">
 	</div>
 	<div class="form-group">
 		<label for="inputRobotName">Robot Summary</label>
-		<textarea class="form-control" name="inputSummary" rows="3" placeholder="Enter design summary"></textarea>
+		<textarea class="form-control" id="inputSummary" rows="3" placeholder="Enter design summary"></textarea>
 	</div>
-	<input class="hiddengroup" name="uploadedfile" type="text">
+	<label>Robot Icon:</label>
 <!-- Redirect browsers with JavaScript disabled to the origin page -->
         <noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->

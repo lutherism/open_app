@@ -19,6 +19,13 @@
 			.foot {
 				background-color:white;
 			}
+			.logincont{
+				border: 1px solid #00adee;
+				border-radius:5px;
+				padding:10px;
+				box-shadow: 0px 0px 10px -3px #111111;
+				background-color:white;
+			}
 			.storebody {
 				margin: 0 auto;
 				clear: both;
