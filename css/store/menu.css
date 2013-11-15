@@ -3,6 +3,7 @@
 				overflow:hidden;
 				margin-top:-20px;
 				Height: 150px;
+				position:absolute;
 				text-align: bottom;
 				width: 100%;
 				display: block;
@@ -22,7 +23,7 @@
 				margin-top:20px;
 			}
 			.settings {
-				right:0px;
+				float:right;
 				margin-top:20px;
 				font-size: 20px;
 			}

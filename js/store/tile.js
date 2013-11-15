@@ -28,6 +28,19 @@ var tileRender = {
 			$('#tile'+robot_input.id+'>>>>>#btn-heart').click(function () {
 				this.childNodes[1].setAttribute('style','color:red;');
 			});
+			$('#tile'+robot_input.id+'>>>>.btn-tile').click(function (){
+				$.oajax({
+					jso_provider: 'openrobot',
+					jso_allowia: true,
+					dataType:'json',
+					url: "http://data.openrobot.net/download/index.php",
+					data: {'id':robot_input.id},
+					success: function(response){
+    				// initiate download using direct path to file
+    				window.location.href = response.URL;
+ 					}
+				});
+			});
 		});
     $('#'+node_id).append(newtile);
   }

@@ -47,12 +47,21 @@
 				border-radius:5px;
 				position:relative;
 			}
+			.fileup {
+				width: 100px;
+				height: 100px;
+				position:absolute;
+				display:none;
+				background-color:white;
+				border: 1px solid #cccccc;
+				border-radius:3px;
+			}
 			.datacol {
 				font-size: 12px;
 				width: 155px;
 				height: 140px;
 				overflow:scroll;
-				white-space:pre;
+				white-space:pre-wrap;
 				border:1px solid #cccccc;
 				border-radius:3px;
 			}
