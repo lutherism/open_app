@@ -1,0 +1,48 @@
+
+			.footer {
+				overflow:hidden;
+				margin-top:-20px;
+				Height: 150px;
+				text-align: bottom;
+				width: 100%;
+				display: block;
+				min-width:1000px;
+				background-color: #00adee;/*#005677;*/
+			}
+			
+			.menutray {
+				margin: auto auto;
+				padding: 0 30px;
+				max-width:1200px;
+				bottom:0px;
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-weight:700;
+				color: #e6e6e6;
+				font-size:40px;	
+				margin-top:20px;
+			}
+			.settings {
+				right:0px;
+				margin-top:20px;
+				font-size: 20px;
+			}
+			.menusetting {
+			margin-left:20px;
+			margin-right: 20px;
+			}
+    	.menu {
+				overflow:hidden;
+				margin: 0px;
+				bottom:0px;
+				Height: 100px;
+				text-align: bottom;
+				width: 100%;
+				display: block;
+				min-width:1000px;
+				background-color: #00adee;/*#005677;*/
+			}
+			.beta {
+				font-family: 'Source Code Pro', sans serif;
+				font-size:25px;
+				font-weight: 400;
+			}
