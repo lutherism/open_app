@@ -18,33 +18,26 @@
      	}
 			.option_on {
 				background-color: rgba(0,173,238,1);
-				height: 18px;
 				border-radius: 3px;
 				display: inline-block;
-				padding: 3px;
+				padding: 1px 3px;
 				font-size: 12px;
 				font-family: 'Open Sans', sans-serif;
+				cursor: pointer;
 				color: white;
+				margin: 3px;
 				box-shadow: 0px 0px 10px -3px #111111;
 			}
 			.option_off {	
+				cursor: pointer;
 				background-color: rgba(120,150,238,0);
-				height: 18px;
 				border-radius: 3px;
+				margin: 3px;
 				display: inline-block;
-				padding: 3px;
+				padding: 1px 3px;
 				font-size: 12px;
 				font-family: 'Open Sans', sans-serif;
 				color: #00adee;
-			}
-    	.menu {
-				overflow:hidden;
-				margin: 0px;
-				border-bottom: 1px solid black;
-				padding:10px;
-				width: 100%;
-				display: block;
-				background-color: #cccccc;
 			}
     </style>
 		
@@ -101,20 +94,25 @@
 		<link href='./css/store/robot_upload.css' rel='stylesheet' type='text/css'/>
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 		<link href='./css/store/store.css' rel='stylesheet' type='text/css'/>
+		<link href='./css/store/menu.css' rel='stylesheet' type='text/css'/>
 		<link href='./css/store/tile.css' rel='stylesheet' type='text/css'/>
 		<link href='./css/store/thumb.css' rel='stylesheet' type='text/css'/>
 		<link href='./css/account/account.css' rel='stylesheet' type='text/css'/>
 		<link rel="stylesheet" href="./css/fileupload/jquery.fileupload.css">
 		<link rel="stylesheet" href="./css/fileupload/jquery.fileupload-ui.css">
 		<!Font Imports>
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|Source+Code+Pro:400,900' rel='stylesheet' type='text/css'>
   </head> 
 <!full page centering containters>
-<body id="mainpage" style="background-color:#b3b7bb">
+<body id="mainpage" style="background-color:#e6e6e6;position:relative;">
 	<div id="bodywrapper" class="bodywrap">
 	<div id="body" class="storebody">
+		<div id="accountslider" class="accountslider"></div>
 		<!Main Store UI TODO-move to own html file>
     <div class="store">
+			<div id="front_page">
 			<img class="banner" src="./images/store/walk_banner.jpg"></img>
 			<div class="tray" id="tr01" style='background-color:white;box-shadow: 0px 5px 10px -5px #cccccc;'>
 				<div class="options">
@@ -132,7 +130,8 @@
 						</div>
 				</div>
 			</div>
-			<div class="tray" id="tr02" style="border-bottom:0px; padding-top:10px;">
+			<div id="tr03" class="fronttiles">
+			<div id="tr02" style="border-bottom:0px;margin-top: 5px; margin-left -1px">
 				<div style='height: 20px; display:inline;'><div id='tileoptions' style="cursor:default;display:inline-block;">
 					<div class="option_on" style="margin-left: 10px;">Hot</div>
 					<div class="option_off">Alphabetic</div>
@@ -142,9 +141,11 @@
 				<div class="searchbar"> <i style="margin:1px 6px;" class="glyphicon glyphicon-search"></i>
         </div>
     	</div>
-			<div id="tr03" class="fronttiles"></div>
+			</div>
+			<div class="tray" id="tr04" style='margin:0 -1px;border:1px solid #00adee;height:150px;background-color:white;box-shadow: 0px 0px 10px -5px #cccccc;'>
 	</div>
 	</div>
 	</div>
+</div>
   </body> 
 </html>

@@ -60,6 +60,7 @@ var loadlogin = {
 }
 
 $(document).ready(function (){	
+		menuDraw.postMenu(menuDraw.createMenu());
 		//init OAuth connection on page load
 		jso_configure({
 			"openrobot": {

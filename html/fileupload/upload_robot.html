@@ -27,61 +27,114 @@
 		<script src="/js/fileupload/jquery.fileupload-video.js"></script>
 		<script src="/js/fileupload/jquery.fileupload-validate.js"></script>
 		<script src="/js/fileupload/jquery.fileupload-ui.js"></script>
-		<script src="/js/fileupload/main.js"></script>
+		<script>
+/*
+ * jQuery File Upload Plugin JS Example 8.9.0
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+/*jslint nomen: true, regexp: true */
+/*global $, window, blueimp */
+
+$(function () {
+    'use strict';
+    // Initialize the jQuery File Upload widget:
+$('#fileupload').fileupload({
+    url: 'http://data.openrobot.net/upload/index.php'
+});
+
+
+    // Enable iframe cross-domain access via redirect option:
+    $('#fileupload').fileupload(
+        'option',
+        'redirect',
+        window.location.href.replace(
+            /\/[^\/]*$/,
+            '/cors/result.html?%s'
+        )
+    );
+
+        // Load existing files:
+        $('#fileupload').addClass('fileupload-processing');
+        $.oajax({
+            // Uncomment the following to send cross-domain cookies:
+            //xhrFields: {withCredentials: true},
+            url: $('#fileupload').fileupload('option', 'url'),
+						jso_provider: "openrobot",
+						jso_allowia: true,
+            dataType: 'json',
+            context: $('#fileupload')[0]
+        }).always(function () {
+            $(this).removeClass('fileupload-processing');
+        }).done(function (result) {
+            $(this).fileupload('option', 'done')
+                .call(this, $.Event('done'), {result: result});
+        });
+
+});
+		</script>
 
 <!Data upload>
 
-<form action:"http://data.openrobot.net/upload/newrobot" method:"POST" id="fileupload" style="padding:15px;">
-	<div class="form-group">
-		<label for="inputRobotName">Robot Name</label>
-		<input type="text" class="form-control" id="inputRobotName" placeholder="Enter the robot's name">
-	</div>
-	<div class="form-group">
-		<label for="inputRobotName">Robot Summary</label>
-		<textarea class="form-control" id="inputSummary" rows="3" placeholder="Enter design summary"></textarea>
-	</div>
-	<label>Robot Icon:</label>
+<form enctype="multipart/form-data" action:"http://data.openrobot.net/upload/" method:"POST" id="fileupload" style="padding:15px;">
+	<label class="title">
+			<span>Title:</span><br>
+			<input name="title[]" class="form-control">
+	</label>
+	<label class="description">
+			<span>Description:</span><br>
+			<input name="description[]" class="form-control">
+	</label>
+	<label>Robot Files:</label>
 <!-- Redirect browsers with JavaScript disabled to the origin page -->
-        <noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
-            <div class="col-lg-7">
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <span>Add files...</span>
-                    <input type="file" name="files[]" multiple>
-                </span>
-                <button type="submit" class="btn btn-primary start">
-                    <i class="glyphicon glyphicon-upload"></i>
-                    <span>Start upload</span>
-                </button>
-                <button type="reset" class="btn btn-warning cancel">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Cancel upload</span>
-                </button>
-                <button type="button" class="btn btn-danger delete">
-                    <i class="glyphicon glyphicon-trash"></i>
-                    <span>Delete</span>
-                </button>
-                <input type="checkbox" class="toggle">
-                <!-- The global file processing state -->
-                <span class="fileupload-process"></span>
-            </div>
-            <!-- The global progress state -->
-            <div class="col-lg-5 fileupload-progress fade">
-                <!-- The global progress bar -->
-                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
-                </div>
-                <!-- The extended global progress state -->
-                <div class="progress-extended">&nbsp;</div>
-            </div>
-        </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-			<button type="submit" id="robotSubmit" class="btn btn-success btn-block">Submit Robot</button>
-	</form>
+		<div id="fileuploader">
+			<noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
+			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+			<div class="row fileupload-buttonbar">
+					<div class="col-lg-7">
+							<!-- The fileinput-button span is used to style the file input field as button -->
+							<span class="btn btn-success fileinput-button">
+									<i class="glyphicon glyphicon-plus"></i>
+									<span>Add files...</span>
+									<input type="file" name="files[]" multiple>
+							</span>
+							<button type="submit" class="btn btn-primary start">
+									<i class="glyphicon glyphicon-upload"></i>
+									<span>Start upload</span>
+							</button>
+							<button type="reset" class="btn btn-warning cancel">
+									<i class="glyphicon glyphicon-ban-circle"></i>
+									<span>Cancel upload</span>
+							</button>
+							<button type="button" class="btn btn-danger delete">
+									<i class="glyphicon glyphicon-trash"></i>
+									<span>Delete</span>
+							</button>
+							<input type="checkbox" class="toggle">
+							<!-- The global file processing state -->
+							<span class="fileupload-process"></span>
+					</div>
+					<!-- The global progress state -->
+					<div class="col-lg-5 fileupload-progress fade">
+							<!-- The global progress bar -->
+							<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+									<div class="progress-bar progress-bar-success" style="width:0%;"></div>
+							</div>
+							<!-- The extended global progress state -->
+							<div class="progress-extended">&nbsp;</div>
+					</div>
+			</div>
+			<!-- The table listing the files available for upload/download -->
+			<table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+			</div>
+		<button type="submit" id="robotSubmit" class="btn btn-success btn-block">Submit Your Robot</button>
+</form>
 <script id="template-upload" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-upload fade">
@@ -132,6 +185,8 @@
                     <span>{%=file.name%}</span>
                 {% } %}
             </p>
+						<p class="title"><strong>{%=file.title||''%}</strong></p>
+            <p class="description">{%=file.description||''%}</p>
             {% if (file.error) { %}
                 <div><span class="label label-danger">Error</span> {%=file.error%}</div>
             {% } %}
@@ -157,4 +212,25 @@
 {% } %}
 </script>
 
+<!script>
+    'use strict';
+        $('#fileupload').addClass('fileupload-processing');
+        $.oajax({
+            // Uncomment the following to send cross-domain cookies:
+            //xhrFields: {withCredentials: true},
+            url: $('#fileupload').fileupload('option', 'url'),
+						jso_provider: "openrobot",
+						jso_allowia: true,
+            dataType: 'json',
+            context: $('#fileupload')[0]
+        }).always(function () {
+            $(this).removeClass('fileupload-processing');
+        }).done(function (result) {
+            $(this).fileupload('option', 'done')
+                .call(this, $.Event('done'), {result: result});
+        });
+$('#fileupload').fileupload({
+    url'http://data.openrobot.net/upload/index.php'
+});
+</!script>
 </body>

@@ -7,7 +7,7 @@ var uploadRender = {
 		var form_div = $('<div id="fileform"></div>');
 		var close_btn = $("<button id='closeupload' class='btn btn-default btn-xs' style='float:right;'>Close</button>");
 		//Load HTML file for fileuploader
-		form_div.load('http://store.openrobot.net/html/fileupload/upload_robot.html');
+		//form_div.load('http://data.openrobot.net/new/index.php');
 //This block is for seperating filupload form the submit form
 			/*function (){
 				$('#robotSubmit').click (function (){
@@ -33,6 +33,16 @@ var uploadRender = {
   popupUpload: function (node_input) {
 		$('body').prepend($('<div class="browsershadow" id="upshadow"></div>'));
     $('body').append(node_input);
+		$.oajax({
+			jso_provider: 'openrobot',
+			jso_allowia: true,
+			url: 'http://data.openrobot.net/new/index.php',
+			dataType:'html',
+			success: function (data){
+				console.log('test');
+				$('#fileform').append($(data));	
+				}
+		});
 		$('#closeupload, #upshadow').click(function () {$('.tilepopup, #upshadow').remove()});
         /*dataType: 'json',
         done: function (e, data) {

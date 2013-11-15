@@ -8,10 +8,9 @@
       }
 			.fronttiles {
 				height:600px;
-				margin-top:5px;
+				padding: 0 5px;
 				overflow-y:scroll;
-				border-bottom: 1px solid #00adee;
-				z-index:10;
+				z-index: 10;
 				overflow: -moz-scrollbars-vertical;
 			}
 			.bodywrap {
@@ -28,6 +27,7 @@
 			}
 			.storebody {
 				margin: 0 auto;
+				display: -webkit-flex;
 				clear: both;
 				width: 1000px;
 			}
@@ -47,14 +47,14 @@
 				padding: 0;
       }
       .store {
+				margin-top:-20px;
 				display:inline-block;
-				position: absolute;
 				width: 768px;
-				height:100%;
 				border-right: 1px solid #00adee;
 				border-left: 1px solid #00adee;
 				background-color:#eff5fa;
-				box-shadow: 0px 5px 10px -3px #111111;
+				margin-bottom:0px;
+				box-shadow: 0px 0px 10px -3px #111111;
 				-webkit-touch-callout: none;
 				-webkit-user-select: none;
 				-khtml-user-select: none;
@@ -63,6 +63,10 @@
 				user-select: none;
 				cursor:default;
       }
+			.accountslider {
+				height:100%;
+				display:inline-block;
+			}
 			.traybutton_add {
 				height: 20px;
 				border: 2px solid #00ff53;
@@ -85,7 +89,6 @@
 				border-radius: 10px;
 				color: #00adee;
 				float:right;
-				margin-right: 5px;
 				display: inline-block;
 				background-color: white;
 				box-shadow: 0px 0px 2px 0px #cccccc inset;
@@ -116,7 +119,7 @@
 			}
 			.options {
 				cursor:default;
-				padding: 15px 5px;
+				padding: 14px 13px;
 				width:100px;
 				height:100px;
 				float: left;

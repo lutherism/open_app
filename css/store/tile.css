@@ -1,11 +1,11 @@
      	.tile {
         overflow: hidden;
 				box-sizing:initial;
-        margin: 10px;
+        margin: 5px 5px;
         border: 1px solid #00adee;
 				border-radius: 8px;
         vertical-align: middle;
-        width: 342px;
+        width: 347px;
 				background-color:#fff;
         height: 201px;
         display: inline-block;
@@ -16,6 +16,8 @@
 			.btn-tile {
 				margin-top: 6px;
 				color:#333333;
+				width: 157;
+				margin-right:-10px;
 				font-family: 'Open Sans', sans-serif;
 			}
 			.downloadbtn {
@@ -26,7 +28,7 @@
 				text-align: center;
 				color: #ff5400;
 				position:absolute;
-				width:134px;
+				width:139px;
 				left: 8px;
 				bottom:0px;
 				padding-bottom:0px;
@@ -47,7 +49,7 @@
 			}
 			.datacol {
 				font-size: 12px;
-				width: 100%;
+				width: 155px;
 				height: 140px;
 				overflow:scroll;
 				white-space:pre;

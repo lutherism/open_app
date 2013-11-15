@@ -70,6 +70,6 @@ var accountPane = {
 		});
 	},
 	add: function (act_node) {
-		$('.storebody').prepend(act_node);
+		$('.accountslider').prepend(act_node);
 	}
 }
