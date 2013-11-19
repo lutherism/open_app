@@ -10,7 +10,7 @@ var thumbRender = {
 		//Fill thumb with robot data
     title_node.html(robot_input.title + ', v' + $(thumb_node).attr('id') + ', '+robot_input.rating+'/5');
     artist_node.html(". by: " +robot_input.artist);
-		thumb_node.css('background-image','url(http://data.openrobot.net/robot_imgs/thumb_img/'+robot_input.image+')');
+		thumb_node.css('background-image','url("http://data.openrobot.net/robots/'+robot_input.id+'/tmp/thumb_img/'+robot_input.image+'")');
 		info_node.append(title_node, artist_node);
 		thumb_node.append( info_node);
 		return thumb_node;

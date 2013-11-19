@@ -9,21 +9,27 @@
 		</div>
 		<div class="span1" style="float:right;">
 			<span class="opensans" style="font-size:10px;color:#cccccc">
+				<button class="btn btn-default btn-xs" style="font-size:10px;" id="btn-remove">
+				<span class="tile_btn_data"></span>
+				<i class="glyphicon glyphicon-remove" style="height:15px;"></i>
+				</button>
 				<button class="btn btn-default btn-xs" style="font-size:10px;" id="btn-comments">
-				4
-				<i class="glyphicon glyphicon-comment"></i>
+				<span class="tile_btn_data">0</span>
+				<i class="glyphicon glyphicon-comment" style="height:15px;"></i>
 				</button>
 				<button class="btn btn-default btn-xs" style="font-size:10px;" id="btn-heart">
-				76
+				<span class="tile_btn_data">76</span>
 				<i class="glyphicon glyphicon-heart"></i>
 				</button>
 				<button class="btn btn-default btn-xs" style="font-size:10px;" id="btn-share">
+				<span class="tile_btn_data"></span>
 				<i class="glyphicon glyphicon-share-alt"style="height:15px;"></i>
 				</button>
 			</span>
 		</div>
 	</div>
-	<div class="row" style="margin:0px;display:-webkit-inline-box;">
+	<div class="comment_container hidden"><div id="tc0"></div><input class="comm_input"></input><button class="btn-sm btn-default btn btn-comm">Comment</button></div>
+	<div class="row" id="inforow" style="margin:0px;display:-webkit-inline-box;">
 		<div class="span1">
 			<img class="tileprofile"></img>
 		</div>

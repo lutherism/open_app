@@ -1,45 +1,6 @@
 
 <html> 
   <head> 
-	<!TODO- This should be in a css file>
-    <style>
-			a.option_ {
-				font-family: 'Open Sans', sans-serif;
-				font-size: 12px;
-				display: inline-block;
-				margin: 3px;
-				user-select:none;
-			}
-      .browsershadow {
-				width: 100%;
-				height: 200%
-				background-color: rbga(10,10,10,.6);
-				position:absolute;
-     	}
-			.option_on {
-				background-color: rgba(0,173,238,1);
-				border-radius: 3px;
-				display: inline-block;
-				padding: 1px 3px;
-				font-size: 12px;
-				font-family: 'Open Sans', sans-serif;
-				cursor: pointer;
-				color: white;
-				margin: 3px;
-				box-shadow: 0px 0px 10px -3px #111111;
-			}
-			.option_off {	
-				cursor: pointer;
-				background-color: rgba(120,150,238,0);
-				border-radius: 3px;
-				margin: 3px;
-				display: inline-block;
-				padding: 1px 3px;
-				font-size: 12px;
-				font-family: 'Open Sans', sans-serif;
-				color: #00adee;
-			}
-    </style>
 		
 		<!Javascript imports>
 		<script src="./js/fileupload/jquery.js"></script>
@@ -61,28 +22,12 @@
     <script src="./js/store/main.js"></script>
    	<script src="./js/store/tile.js"></script>
 		<script src="./js/store/thumb.js"></script>
+		<script src="./js/store/tile_comments.js"></script>
 		<script src='./js/store/upload_robot.js'></script>
 		<script src='./js/requirejs/require.js'></script>
 		<script src='./js/store/load_bots.js'></script>
 		<script src='./js/menu/menu.js'></script>
 		<script src='./js/account/account.js'></script>
-    <!Some onload init commands, TODO:move to main.js>
-		<script> 
-    $(function(){
-      $("#includedContent").load("./html/store/main.html");
-			$(document).ready(pageload.account());
-			$(document).ready(pageload.menu());
-			$(document).ready(pageload.store());
-		$(document).ready(jso_configure({
-			"openrobot": {
-			client_id: "ostore",
-			redirect_uri: "http://store.openrobot.net/",
-			authorization: "http://oauth.openrobot.net/authorization.php",
-			presenttoken: "qs"
-			}
-		}));
-    });
-    </script> 
 		<!CSS Imports>
 <!-- Bootstrap styles -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -104,47 +49,17 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|Source+Code+Pro:400,900' rel='stylesheet' type='text/css'>
+
+	<!Init scripts>
+	<script>
+
+	</script>
+
   </head> 
 <!full page centering containters>
 <body id="mainpage" style="background-color:#e6e6e6;position:relative;">
 	<div id="bodywrapper" class="bodywrap">
 	<div id="body" class="storebody">
-		<div id="accountslider" class="accountslider"></div>
-		<!Main Store UI TODO-move to own html file>
-    <div class="store">
-			<div id="front_page">
-			<img class="banner" src="./images/store/walk_banner.jpg"></img>
-			<div class="tray" id="tr01" style='background-color:white;box-shadow: 0px 5px 10px -5px #cccccc;'>
-				<div class="options">
-						<div style="display:inline-block;">
-								<div class="option_on">Utility</div><br>
-								<div class="option_off">Kitchen</div><br>
-								<div class="option_off">Toy</div><br>
-								<div class="option_off">Mobile</div><br>
-						</div>
-						<div style="display:inline-block; position:absolute">
-								<div class="option_off">Sport</div><br>
-								<div class="option_off">Education</div><br>
-								<div class="option_off">Medical</div><br>
-								<div class="option_off">Misc</div>
-						</div>
-				</div>
-			</div>
-			<div id="tr03" class="fronttiles">
-			<div id="tr02" style="border-bottom:0px;margin-top: 5px; margin-left -1px">
-				<div style='height: 20px; display:inline;'><div id='tileoptions' style="cursor:default;display:inline-block;">
-					<div class="option_on" style="margin-left: 10px;">Hot</div>
-					<div class="option_off">Alphabetic</div>
-					<div class="option_off">New</div></div>
-					<div style="width: 5px;display:inline;float:right;height:20px;"></div>
-				</div>
-				<div class="searchbar"> <i style="margin:1px 6px;" class="glyphicon glyphicon-search"></i>
-        </div>
-    	</div>
-			</div>
-			<div class="tray" id="tr04" style='margin:0 -1px;border:1px solid #00adee;height:150px;background-color:white;box-shadow: 0px 0px 10px -5px #cccccc;'>
-	</div>
-	</div>
 	</div>
 </div>
   </body> 

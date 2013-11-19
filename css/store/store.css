@@ -4,8 +4,43 @@
 				margin: 0px -1px;
 				height: 256px;
 				display: block;
-				box-shadow: 0px 5px 5px -5px #cccccc;
       }
+			a.option_ {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 12px;
+				display: inline-block;
+				margin: 3px;
+				user-select:none;
+			}
+      .browsershadow {
+				width: 100%;
+				height: 200%
+				background-color: rbga(10,10,10,.6);
+				position:absolute;
+     	}
+			.option_on {
+				background-color: rgba(0,173,238,1);
+				border-radius: 3px;
+				display: inline-block;
+				padding: 1px 3px;
+				font-size: 12px;
+				font-family: 'Open Sans', sans-serif;
+				cursor: pointer;
+				color: white;
+				margin: 3px;
+				box-shadow: 0px 0px 10px -5px #111111;
+			}
+			.option_off {	
+				cursor: pointer;
+				background-color: rgba(120,150,238,0);
+				border-radius: 3px;
+				margin: 3px;
+				display: inline-block;
+				padding: 1px 3px;
+				font-size: 12px;
+				font-family: 'Open Sans', sans-serif;
+				color: #00adee;
+			}
 			.fronttiles {
 				height:600px;
 				padding: 0 5px;
@@ -93,7 +128,6 @@
 				float:right;
 				display: inline-block;
 				background-color: white;
-				box-shadow: 0px 0px 2px 0px #cccccc inset;
 			}
 			.traybutton_remove {
 				height: 20px;
@@ -121,8 +155,9 @@
 			}
 			.options {
 				cursor:default;
-				padding: 14px 13px;
-				width:100px;
+				margin: 14px 13px;
+				border-radius:5px;
 				height:100px;
+				width: 100px;
 				float: left;
 }

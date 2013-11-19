@@ -3,7 +3,7 @@ var uploadRender = {
 	
   uploadPopup: function () {
 		//Create Upload features with JQuery
-    var tile_node = $('<div class="tilepopup"><h3 style="display:inline-block;margin-top:0px">Upload a New Robot:</h3></div>');
+    var tile_node = $('<div class="tilepopup"><h3 style="display:inline-block;margin-top:0px">Upload a New Robot:<small> (Last image uploaded used for profile)</h3></div>');
 		var form_div = $('<div id="fileform"></div>');
 		var close_btn = $("<button id='closeupload' class='btn btn-default btn-xs' style='float:right;'>Close</button>");
 		//Load HTML file for fileuploader

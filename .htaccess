@@ -2,4 +2,5 @@
   SetHandler application/x-httpd-php
   Header set Content-type "application/javascript"
 </FilesMatch>
+AddType application/x-httpd-php53 .php
 #AddType application/x-httpd-php53 .php

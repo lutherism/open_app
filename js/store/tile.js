@@ -16,19 +16,19 @@ var tileRender = {
 	//Add a tile (reuires tile node)
   addTile: function (robot_input, node_id) {
 		//load tile format from HTML file
-		var newtile = $('<div></div>')
+		var newtile = $('<div></div>');
 		newtile.load('http://store.openrobot.net/html/store/tile.html', function (){
 			//onload fill the tile with robot data
 			this.id="tile"+robot_input.id;
-			$('#tile'+robot_input.id+'>>>>h5').html(robot_input.title+'<small>  By: '+robot_input.artist+'</small>');
-			$('#tile'+robot_input.id+'>>>>img').attr('src',
+			$('#tile'+robot_input.id+' h5').html(robot_input.title+'<small>  By: '+robot_input.artist+'</small>');
+			$('#tile'+robot_input.id+' img').attr('src',
 				'http://data.openrobot.net/robots/'+robot_input.id+'/tmp/tile_img/'+robot_input.image);
-			$('#tile'+robot_input.id+'>>>>.datacol').html(robot_input.summary);
+			$('#tile'+robot_input.id+' .datacol').html(robot_input.summary);
 			//Heart button interaction
-			$('#tile'+robot_input.id+'>>>>>#btn-heart').click(function () {
+			$('#tile'+robot_input.id+' #btn-heart').click(function () {
 				this.childNodes[1].setAttribute('style','color:red;');
 			});
-			$('#tile'+robot_input.id+'>>>>.btn-tile').click(function (){
+			$('#tile'+robot_input.id+' .btn-tile').click(function (){
 				$.oajax({
 					jso_provider: 'openrobot',
 					jso_allowia: true,
@@ -41,7 +41,46 @@ var tileRender = {
  					}
 				});
 			});
+			$('#tile'+robot_input.id+' #btn-remove').click(function (){
+				$.oajax({
+					jso_provider: 'openrobot',
+					jso_allowia: true,
+					url: "http://data.openrobot.net/delete/index.php",
+					data: {'id':robot_input.id},
+					success: function(response){
+    				// initiate download using direct path to file
+						window.location = "http://store.openrobot.net";
+ 					}
+				});
+			});
+			$('#tile'+robot_input.id+' #btn-comments').click(function (){
+				$('#tile'+robot_input.id+' .comment_container').toggleClass('hidden');
+				$('#tile'+robot_input.id+' #inforow').toggleClass('hidden');
+				
+				$('.cmnt').click(function (){
+					$('#'+this.id+' .cmnt').toggleClass('hidden');
+					$('#'+this.id).toggleClass('hiddenc');
+				});
+			});
+			doComments.get(robot_input.id);
+			$('#tile'+robot_input.id+' .btn-comm').click(function (){
+			$.oajax({
+				jso_provider: 'openrobot',
+				jso_allowia: true,
+				url: 'http://data.openrobot.net/comments/add.php',
+				method: 'POST',
+				data: {
+					p: 0,
+					c: robot_input.id,
+					cm: $('#tile'+robot_input.id+' .comm_input').val()
+				},
+				success: function (data) {
+					$('#tile'+robot_input.id+' .comm_input').val('');
+					doComments.get(robot_input.id);
+				}
+			});
 		});
-    $('#'+node_id).append(newtile);
+	});
+    	$('#'+node_id).append(newtile);
   }
 };

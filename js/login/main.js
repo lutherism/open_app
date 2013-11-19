@@ -28,7 +28,6 @@ var loadlogin = {
 			var tokens = jso_getToken('openrobot');
 			if(!tokens) tokens = [];
 			tokens.push(data);
-			console.log(JSON.stringify(data)+"~~");
 			localStorage.setItem("tokens-openrobot",JSON.stringify(tokens));
 			window.location = 'http://store.openrobot.net/';
 		})
@@ -61,14 +60,5 @@ var loadlogin = {
 
 $(document).ready(function (){	
 		menuDraw.postMenu(menuDraw.createMenu());
-		//init OAuth connection on page load
-		jso_configure({
-			"openrobot": {
-			client_id: "ostore",
-			redirect_uri: "http://store.openrobot.net/",
-			authorization: "http://oauth.openrobot.net/authorization.php",
-			presenttoken: "header"
-			}
-		});
 		loadlogin.buildpop();
 });

@@ -4,13 +4,6 @@ var pageload = {
   store: function () {
 		//ON click command for various store page UI buttons
 		$('#b01').click(function () {uploadRender.uploadPopup()});
-		/*$('#b01').click(function (){
-			$.oajax({
-				jso_provider: 'openrobot',
-				jso_alowia: true,
-				url: 'http://data.openrobot.net/new/'
-			})
-		});*/
 		$('#register').click(function (){accountPane.register($('#user').val(),$('#pass').val())});
 		//Init option sorters		
 		$('.options>>div').click(function () {$('.options>>div').attr('class','option_off'); this.setAttribute('class','option_on');});
@@ -26,16 +19,36 @@ var pageload = {
 	account: function () {
 		accountPane.add(accountPane.create());
 	}
-}
+};
 
-$(document).ready(function (){
-		//set up OAuth connection on entrance
-		jso_configure({
+		$(document).ready(jso_configure({
 			"openrobot": {
 			client_id: "ostore",
-			redirect_uri: "http://store.openrobot.net/",
+			redirect_uri: "http://store.openrobot.net/login.html",
 			authorization: "http://oauth.openrobot.net/authorization.php",
 			presenttoken: "qs"
 			}
-		});
-});
+			}));
+			if(jso_getToken('openrobot')){
+			$(document).ready($.oajax({
+				jso_provider: 'openrobot',
+				jso_allowia: true,
+				url: 'http://store.openrobot.net/front.php',
+				dataType: 'html',
+				success: function (data){
+					$('#body').html(data);
+			$(document).ready(pageload.account());
+			$(document).ready(pageload.menu());
+			$(document).ready(pageload.store());
+				}
+			}));
+			} else {
+			console.log('not logged in');	
+			$.ajax({
+			url:"http://store.openrobot.net/html/store/login.html",
+			dataType: 'html',
+			success: function (data){
+				$('#body').html(data);
+			}
+			});
+			}
