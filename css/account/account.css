@@ -1,11 +1,75 @@
 .accountpane {
-	min-width: 200px;
+	width: 200px;
 	background-color:#fff;
 	border: 1px solid #00adee;
 	border-radius: 5px;
-	margin: 10px 10px;
+	margin: 10px 10px 0 0;
+	display: inline-block;
+	box-shadow: 0px 0px 10px -5px #111111;
+}
+.new {
+	background-color: #eff5fa;
+}
+.alertpane {
+	width: 200px;
+	background-color:#fff;
+	border: 1px solid #00adee;
+	border-radius: 5px;
+	margin: 10px 10px 0 0;
 	display: inline-block;
 	box-shadow: 0px 0px 10px -5px #111111
+}
+.oppane {
+	width: 200px;
+	background-color:#fff;
+	border: 1px solid #00adee;
+	border-radius: 5px;
+	margin: 10px 10px 0 0;
+	display: inline-block;
+	box-shadow: 0px 0px 10px -5px #111111
+}
+.errpane {
+	width: 200px;
+	background-color:#faeef5;
+	border: 1px solid red;
+	border-radius: 5px;
+	margin: 10px 10px 0 0;
+	display: inline-block;
+	box-shadow: 0px 0px 10px -5px #111111
+}
+.repane {
+	width: 200px;
+	background-color:#edfaf2;
+	border: 1px solid green;
+	border-radius: 5px;
+	margin: 10px 10px 0 0;
+	display: inline-block;
+	box-shadow: 0px 0px 10px -5px #111111
+}
+.unread {
+	color: red;
+}
+.unreadmsg {
+	display: inline-block;
+	float:right;
+}
+.actray {
+	margin: 5 5 0 0;
+	text-align:center;
+}
+.actbutton {
+	margin: 0 0 5 5;
+	float:right;
+}
+.reppos {
+	display:inline;
+}
+.repcnt {
+	color:#cccccc;
+  display:inline-block;	
+}
+.repneg {
+	display:inline;
 }
 .usr_group {
 	width:170px;

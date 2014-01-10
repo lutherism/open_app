@@ -1,5 +1,6 @@
 <!doctype html>
 <div class="tile">
+	<div class="tile_loading"><div class="tload_msg">Loading Robot...</div></div>
 	<div class="row" style="display: -webkit-inline-grid;margin:0px; width:100%">
 		<div class="span1" style="display:inline-block">
 			<h5 class="opensans" style="margin:0px 0px 5px;">
@@ -17,18 +18,25 @@
 				<span class="tile_btn_data">0</span>
 				<i class="glyphicon glyphicon-comment" style="height:15px;"></i>
 				</button>
-				<button class="btn btn-default btn-xs" style="font-size:10px;" id="btn-heart">
+				<button class="btn btn-default btn-xs disabled" style="font-size:10px;" id="btn-heart">
 				<span class="tile_btn_data">76</span>
 				<i class="glyphicon glyphicon-heart"></i>
 				</button>
-				<button class="btn btn-default btn-xs" style="font-size:10px;" id="btn-share">
+				<div class="dropdown" style="display:inline-block;">
+				<button class="btn btn-default btn-xs dropdown-toggle" style="font-size:10px;" data-toggle="dropdown" id="btn-share">
 				<span class="tile_btn_data"></span>
 				<i class="glyphicon glyphicon-share-alt"style="height:15px;"></i>
 				</button>
+				<ul class="dropdown-menu" style="overflow:visible" role="menu">
+					<li id="drdelete"> delete </li>
+					<li id="dredit"> edit </li>
+					<li class="divider"></li>
+				</ul>
+				</div>
 			</span>
 		</div>
 	</div>
-	<div class="comment_container hidden"><div id="tc0"></div><input class="comm_input"></input><button class="btn-sm btn-default btn btn-comm">Comment</button></div>
+	<div class="comment_container hidden"><div class="comment_scroller"><div id="tc0"></div><input class="comm_input"></input><button class="btn-sm btn-default btn btn-comm">Comment</button></div></div>
 	<div class="row" id="inforow" style="margin:0px;display:-webkit-inline-box;">
 		<div class="span1">
 			<img class="tileprofile"></img>

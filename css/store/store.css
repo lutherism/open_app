@@ -1,10 +1,84 @@
-      .banner {
+      .robot_profile{
+				overflow:hidden;
+				width: 770px;
+				height: 770px;
+			  margin: 0 -1;
+				background-size:cover;
+				display:block;	
+				position:relative;
+			}
+			.nav_tray{
+				padding:10px;
+			}
+			.robot_profile_title{
+				position:absolute;
+				bottom:0;
+				background-color: rgba(75,75,75,.5);
+				margin:20px;
+				color:white;
+				width:710;
+				border-radius:10px;
+				height:200px;
+				padding:10px;
+			}
+			.info_pane_tray{
+				margin:0 10 10 10;
+			}
+			.info_tab{
+				border-top-left-radius:5px;
+				border-top-right-radius:5px;
+				text-align:center;
+				padding: 5 15 5 15;
+				background-color:white;
+				border-top:1 solid #00adee;
+				border-left:1 solid #00adee;
+				border-right:1 solid #00adee;
+				border-bottom:1 solid white;
+				margin-bottom:-1;
+				display:inline-block;
+			}
+			.info_pane{
+				border-bottom-left-radius:5px;
+				border-bottom-right-radius:5px;
+				border-top-right-radius:5px;
+				width:718;
+				background-color:white;
+				border:1 solid #00adee;
+				min-height:250;
+				padding:15px;
+			}
+			.background {
+				background-image:url("http://store.openrobot.net/images/store/handmadepaper2.png");
+				background-size:100 100;
+			}
+			.unselected {
+				background-color:#eff5fa;
+				border-bottom: 1 solid #00adee;
+				color:#00adee;
+			}
+			.fright{
+				position:absolute;
+				right:10;
+				width:157;
+				bottom:10;
+			}
+			.rcmnt {
+				white-space:pre-wrap;
+				margin-left:5px;
+				border-left:1px solid #cccccc;
+				padding:10 0 0 10;
+				font-size:18px;
+			}
+			.banner {
 				overflow: hidden;
 				width: 770px;
 				margin: 0px -1px;
 				height: 256px;
 				display: block;
       }
+			.subduetxta {
+				border-color:#cccccc;
+			}
 			a.option_ {
 				font-family: 'Open Sans', sans-serif;
 				font-size: 12px;
@@ -41,6 +115,32 @@
 				font-family: 'Open Sans', sans-serif;
 				color: #00adee;
 			}
+			#preceipt {
+				margin:5px;
+				display:block;
+			}
+			#psubject {
+				margin:5px;
+				display:block;
+			}
+			#pmessage {
+				display:block;
+				margin:5px;
+				width:290px;
+				resize:vertical;
+			}
+			.pm_pop {
+				background: white;
+				border: 1px solid #00adee;
+				border-radius: 5px;
+				padding:5px;
+				position:absolute;
+				width:300px;
+				top:50%;
+				left:50%;
+				z-index:200;
+				margin:-150px -100px;
+			}
 			.fronttiles {
 				height:600px;
 				padding: 0 5px;
@@ -50,14 +150,41 @@
 			}
 			.bodywrap {
 			}
+			.regi {
+				margin:3px;
+			}
+			.regit {
+				margin:3px;
+				width:318px;
+				border-color: #cccccc;
+				resize:vertical;
+			}
 			.foot {
 				background-color:white;
+			}
+			.regwarn {
+				font-size:10px;
+				text-align:center;
+				color:#cccccc;
+				margin:0;
+			}
+			.betareg{
+				background-color:white;
+				border: 1px solid #00adee;
+				margin-left:-48px;
+				border-radius:3px;
+				display:inline-block;
+				box-shadow: 0px 0px 10px -5px #111111;
+				padding:5px;
+				margin-bottom:165px;
 			}
 			.logincont{
 				border: 1px solid #00adee;
 				border-radius:5px;
 				padding:10px;
-				box-shadow: 0px 0px 10px -3px #111111;
+				display: inline-block;
+				margin:10px;
+				box-shadow: 0px 0px 10px -5px #111111;
 				background-color:white;
 			}
 			.storebody {
@@ -101,8 +228,8 @@
 				cursor:default;
       }
 			.accountslider {
-				height:100%;
 				display:inline-block;
+				max-width:212px
 			}
 			.traybutton_add {
 				height: 20px;

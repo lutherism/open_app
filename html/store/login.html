@@ -1,10 +1,20 @@
 
-	<style>.footer { bottom:0px;} .storebody {width:220px;margin-top:100px;}</style>
+	<style>.footer { bottom:0px;} .storebody {width:220px;margin-top:100px;display:block;}</style>
 	<script src="./js/login/main.js"></script>
 			<div id="loginpage" class="logincont">
 					<a href="http://openrobot.net/"><img src="http://data.openrobot.net/store/logo.png" style="width:200"></img></a>
+					<label>Login:</label>
 					<input id="user" class="loginfield" style="width:200px" type="text" name="username" placeholder="username">
 					<input id="pass" style="width:200px" class="loginfield" type="password" name="paddword" placeholder="password">
-					<button class="btn btn-xs btn-default" id="login">Login</button>
-					<button class="btn btn-xs btn-primary" style="float:right;" id="register">Register</button>
+					<button class="btn btn-xs btn-default" style="float:right;" id="login">Login</button>
+			</div>
+			<div id="betareg" class="betareg">
+			<label>Request Beta Invite:</label>
+			<form action="http://store.openrobot.net/php/account/register.php" style="display:inline-block;margin:0" method="POST">
+			<input id="reguser" class="regi" name="user" placeholder="username">
+			<input id="regemail" class="regi" name="email" placeholder="email">
+			<textarea id="regreason" class="regit" name="reason" rows="3" placeholder="Tell us about yourself."></textarea>
+			<span id="passwarn" class="hidden" style="margin:0">Passwords must match.</span>
+			<button type="submit" style="float:right;margin:3px" class="btn btn-xs btn-primary">Request Invite</button>
+			</form>
 			</div>

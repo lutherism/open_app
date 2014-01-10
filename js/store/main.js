@@ -4,6 +4,19 @@ var pageload = {
   store: function () {
 		//ON click command for various store page UI buttons
 		$('#b01').click(function () {uploadRender.uploadPopup()});
+		$('#b03').click(function () {messageRender.messagePopup()});
+		$('#logout').click(function (){jso_wipe(); window.location = 'http://store.openrobot.net/'});
+		//Request API for user save list
+			$.oajax({
+				url: 'http://data.openrobot.net/user/index.php',
+				jso_provider: 'openrobot',
+				jso_allowia: true,
+				dataType: 'json',
+				success: function (data){
+					console.log(JSON.stringify(data));
+					accountPane.filemenu(data);
+				}
+		});
 		$('#register').click(function (){accountPane.register($('#user').val(),$('#pass').val())});
 		//Init option sorters		
 		$('.options>>div').click(function () {$('.options>>div').attr('class','option_off'); this.setAttribute('class','option_on');});
@@ -11,13 +24,13 @@ var pageload = {
 		//Load Robots from test.json
 		loadrobots.loader();
 	},
-	//???
+	//Load menu and footer
 	menu: function () {
 		menuDraw.postMenu(menuDraw.createMenu());
 	},
 	//Draw account pane
 	account: function () {
-		accountPane.add(accountPane.create());
+		accountPane.create();
 	}
 };
 

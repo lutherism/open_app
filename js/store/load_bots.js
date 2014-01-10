@@ -1,15 +1,20 @@
 var loadrobots = {
  loader: function (){
-	//define and call GET request for JSON of all robots in table
-  var url="./php/store/load_bots.php";
+	//define and call a http GET request for a JSON file of all robots in MySQL table
+  var add="./php/store/load_bots.php";
   var robots;
-  $.getJSON(url,function(json){
-   // loop through the members here
-   $.each(json,function(i,dat){
-    console.log(dat.title);
-    tileRender.addTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03');
+	$.oajax({
+		url:add,
+		jso_provider:'openrobot',
+		jso_allowia:true,
+		dataType: 'json',
+		success: function(data){
+   // loop through the members and call .js files for rendering tiles and thumbs
+   $.each(data,function(i,dat){
+    tileRender.addTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
     if(i<5)thumbRender.addThumb(thumbRender.fillthumbElements(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary)),'tr01');
    });
-  });
- }
+  }
+ });
+	}
 }

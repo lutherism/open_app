@@ -2,13 +2,13 @@ var loadlogin = {
 	//Enable clicking and pressing enter for login
 	buildpop: function () {
 		$('#login').click(function (){loadlogin.login($('#user').val(),$('#pass').val())});
-		$('input').on('keyup', function(e) {
+		$('#loginpage input').on('keyup', function(e) {
 				if (e.keyCode === 13) {
 						$('#login').click();
 				}
 		});
 	},	
-	//send login data to server (TODO: THIS NEEDS TO BE ENCODED)
+	//send login data to server (TODO: THIS NEEDS TO BE through SSL)
 	login: function (user,pass) {
 		$.ajax({
 			type:'POST',
@@ -22,6 +22,7 @@ var loadlogin = {
 				client_secret: 'testtesttest'
 			},
 		})
+		//save the returned Access Token to localStorage for use with jso
 		.done(function (data) {
 			var now = Math.round(new Date().getTime()/1000.0);
 			data.expires = now+data.expires_in;
@@ -32,26 +33,7 @@ var loadlogin = {
 			window.location = 'http://store.openrobot.net/';
 		})
 		.error(function(){
-			alert("Error");
-		});
-	},
-	//Register Account with server (TODO: Should only request registration)
-	register: function (user,pass) {
-		$.ajax({
-			type:'POST',
-			url:'http://oauth.openrobot.net/register.php',
-			data:
-   		{
-				username: user,
-				password: pass,
-			},
-		})
-		.done(function (data) {
-			$('#user, #pass, #login, #register').remove();
-			$('#atr1').html('logged in as '+data.username);
-		})
-		.error(function(){
-			alert("Error");
+			alert("That username and password combination was not found. Please try again.");
 		});
 	}
 
