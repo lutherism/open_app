@@ -1,9 +1,31 @@
 var robotProfile = { 
+	initfromID: function(rid) {
+	$.ajax({
+		url:'http://data.openrobot.net/store/robot_info.php',
+		data: {'rid':rid},
+		dataType: 'json',
+		success: function(data){
+			console.log('wattt');
+			console.log(data);
+			robotProfile.init(data);},
+		error: function(request,error){accountPane.accError(rid, "We failed to find a robot with the ID #"+rid, "Robot not found")}
+		});
+	},
 	init: function(robot) {
+		console.log('faill');
 		$(".robot_profile").css('background-image','url("http://data.openrobot.net/robots/'+robot.id+'/tmp/'+robot.image+'")');
-		$(".nav_tray").append(" / <a class='nav_crumb'>"+robot.artist+"</a>");
+		$(".nav_crumb").click(function (){
+				$('.store').load("http://store.openrobot.net/html/store/main.html",function (){
+					pageload.store();
+				});
+		});
+		$(".nav_tray").append(" / <a class='nav_crumb' id='artist_crumb'>"+robot.artist+"</a>");
 		$(".nav_tray").append(" / <a class='nav_crumb'>"+robot.id+"</a>");
 		$(".robot_profile_title").append("<h2>"+robot.title+"<h4> By "+robot.artist+"</h4></h2><p>"+robot.summary+"</p>");
+		robot.files.forEach(function(file){
+			var fileUI = $('<div class="file_box"><div class="file_icon"></div>'+file.file_name+'</div>');
+			$('#rpcontents_pane').append(fileUI);
+		});
 		$('#rpcontents').click(function() {
 			$('.info_pane').addClass('hidden');
 			$('.info_tab').addClass('unselected');
@@ -49,9 +71,7 @@ var robotProfile = {
 		robotProfile.pullCommentData(robot.id);
 	},
   pullCommentData: function(comment_id) {
-		$.oajax({
-			jso_provider: 'openrobot',
-			jso_allowia: true,
+		$.ajax({
 			url: "http://data.openrobot.net/comments/get.php",
 			dataType: 'json',
 			data: {'id':comment_id},

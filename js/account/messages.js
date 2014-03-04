@@ -1,6 +1,17 @@
 var MessageCenter = { 
 	init: function(user) {
-		$(".nav_tray").append(" / <a class='nav_crumb'>"+user.name+"</a>");
+		$(".nav_crumb").click(function (){
+			
+				$('.store').load("http://store.openrobot.net/html/store/main.html",function (){
+					pageload.store();
+				});
+		});
+		$(".nav_tray").append(" / <a id='artist_crumb' class='nav_crumb'>"+user.users+"</a>");
+		$('#artist_crumb').click(function (){
+				$('.store').load("http://store.openrobot.net/html/account/user_profile.html",function (){
+					userProfile.init(user);
+				});
+			});
 		$(".nav_tray").append(" / <a class='nav_crumb'>"+"Messages"+"</a>");
 		$(".robot_profile_title").append("<h2>"+user.name+"</h2>");
 		$(".robot_profile_summary").append("<p>"+user.summary+"</p>");

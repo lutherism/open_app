@@ -33,7 +33,7 @@ var loadlogin = {
 			window.location = 'http://store.openrobot.net/';
 		})
 		.error(function(){
-			alert("That username and password combination was not found. Please try again.");
+			accountPane.accAlert("01","That username and password combination was not found. Please try again.","Invalid Credentials");
 		});
 	}
 

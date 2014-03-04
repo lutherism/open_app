@@ -14,6 +14,11 @@ var thumbRender = {
 		thumb_node.css('background-image','url("http://data.openrobot.net/robots/'+robot_input.id+'/tmp/tile_img/'+robot_input.image+'")');
 		info_node.append(title_node, artist_node);
 		thumb_node.append( info_node);
+				$(thumb_node).click(function (){
+				$('.store').load("http://store.openrobot.net/html/store/robot.html",function (){
+					robotProfile.initfromID(robot_input.id);
+				});
+				});
 		return thumb_node;
   },
 	

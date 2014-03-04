@@ -1,5 +1,21 @@
 var doComments = {
 //method for getting comments for each robot tile
+		anonGet: function (tile_id){
+			//AJAX call for comment data
+				$.ajax({
+					url: "http://data.openrobot.net/comments/get.php",
+					dataType: 'json',
+					data: {'id':tile_id},
+					success: function(response){
+    				// add comment length to comment button (or leave at default 0)
+						if(response.length){$('#tile'+tile_id+" #btn-comments .tile_btn_data").html(response.length+" ");
+						// send data to get rendered in html
+						doComments.post(response);
+						}
+ 					}
+				});
+			$('#tile'+tile_id+' .btn-comm').addClass('disabled');
+		},
 		get: function (tile_id){
 			//AJAX call for comment data
 				$.oajax({

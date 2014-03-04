@@ -16,5 +16,22 @@ var loadrobots = {
    });
   }
  });
+	},
+	
+ anon_loader: function (){
+	//define and call a http GET request for a JSON file of all robots in MySQL table
+  var add="./php/store/anon_load_bots.php";
+  var robots;
+	$.ajax({
+		url:add,
+		dataType: 'json',
+		success: function(data){
+   // loop through the members and call .js files for rendering tiles and thumbs
+   $.each(data,function(i,dat){
+    tileRender.addAnonTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+    if(i<5)thumbRender.addThumb(thumbRender.fillthumbElements(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary)),'tr01');
+   });
+  }
+ });
 	}
 }

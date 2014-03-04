@@ -1,16 +1,48 @@
-
 			.footer {
 				overflow:hidden;
 				margin-top:-20px;
-				Height: 150px;
-				position:absolute;
-				text-align: bottom;
-				width: 100%;
+				position:relative;
+				width: 1000;
 				display: block;
-				min-width:1000px;
-				background-color: #00adee;/*#005677;*/
+			  left:50%;
+				margin:30 auto 30 -500;
+				clear: both;
+				bottom:0;
+				background-color: rgba(204, 204, 204, .4);
+				border-radius:15px;
 			}
-			
+			.foot_col_l {
+				width: 280;
+				display: inline-block;
+				margin: 0 40 15 5;
+				padding:10;
+				text-align:center;
+			}
+			.foot_col_r {
+				width: 280;
+				text-align:center;
+				display: inline-block;
+				margin: 0 5 15 0;
+				padding:10;
+				right: 0;
+				position:relative;
+			}
+			.foot_col_m {
+				width: 280;
+				text-align:center;
+				display: inline-block;
+				margin: 0 40 15 0;
+				padding:10;
+			}
+			.logo_pic{
+				width:110px;
+				left:50%;
+				margin:-10 0 0 -30px;
+				position:absolute;
+			}
+			.logo {
+				display:inline-block;
+			}			
 			.menutray {
 				margin: auto auto;
 				padding: 0 30px;
@@ -18,7 +50,7 @@
 				bottom:0px;
 				font-family: 'Open Sans Condensed', sans-serif;
 				font-weight:700;
-				color: #e6e6e6;
+				color: #333333;
 				font-size:40px;	
 				margin-top:20px;
 			}
@@ -40,7 +72,6 @@
 				width: 100%;
 				display: block;
 				min-width:1000px;
-				background-color: #00adee;/*#005677;*/
 			}
 			.beta {
 				font-family: 'Source Code Pro', sans serif;

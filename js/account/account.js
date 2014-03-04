@@ -6,11 +6,13 @@ var accountPane = {
 		var acnt = $('<div class="alertpane" id="apane'+id+'"></div>'); 
 		var title_tray = $('<div class= "acttray" id="atit'+id+'">'+title+'</div>');
 		var message_tray = $('<div class="opensans actray" id="amess'+id+'">'+message+'</div>');
-		title_tray.prepend(
-		$('<button id="acls'+id+'" class="btn btn-default btn-xs actbutton">close</button>')
-		);
+		var closebtn = $('<button id="acls'+id+'" class="btn btn-default btn-xs actbutton">close</button>');
+		title_tray.prepend(closebtn);
 	  acnt.append(title_tray, message_tray);
-		return acnt;	
+		closebtn.click(function(){
+			acnt.remove();
+		});
+		$('#accountslider').append(acnt);	
 	},
 	//Open an error popup
 	//Error is just a message with a close button, in a red tile
@@ -25,7 +27,7 @@ var accountPane = {
 		closebtn.click(function(){
 			cnt.remove();
 		});
-		return cnt;	
+		$('#accountslider').append(cnt);	
 	},
 	//Open a reward popup
 	//Reward is just a message with a close button, in a green tile
@@ -79,12 +81,20 @@ var accountPane = {
 		jso_provider: "openrobot",
 		jso_allowia: true,
 		dataType: 'json',
-		success: function(data) {
-			$('#atr1').append('<div class="user_info">'+data[2]+' <div class="repcnt"> (<div class="reppos">'+data.total+'</div> pts)</div>');
-			if(data.unreadmessages){$('#atr1').prepend('<div class="unreadmsg">'+Object.keys(data.unreadmessages).length+' <i class="glyphicon glyphicon-envelope" style="color:red"></i></div></div>');}
+		success: function(userdata) {
+			console.log(userdata['unread']);
+			console.log(userdata.unread);
+			$('#atr1').append('<div class="user_info">'+userdata.users+' <div class="repcnt"> (<div class="reppos">'+userdata.total+'</div> pts)</div>');
+			$('#atr1').prepend('<div class="unreadmsg">'+Object.keys(userdata.unread).length+' <i class="glyphicon glyphicon-envelope"></i></div></div>');
+			if(Object.keys(userdata.unread).length>=1){$('.unreadmsg > .glyphicon').css('color',"red");}
 			$('.unreadmsg').click(function (){
 				$('.store').load("http://store.openrobot.net/html/store/messages.html",function (){
-					MessageCenter.init(data);
+					MessageCenter.init(userdata);
+				});
+			});
+			$('.user_info').click(function (){
+				$('.store').load("http://store.openrobot.net/html/account/user_profile.html",function (){
+					userProfile.init(userdata);
 				});
 			});
 		}
@@ -93,6 +103,20 @@ var accountPane = {
 		//actions_tray.append(logout_btn, edit_btn, upload_btn,message_btn);
 		cnt.append(account_tray, robots_tray, actions_tray);			
 		$('.accountslider').append(cnt);
+		$('#b01').click(function () {uploadRender.uploadPopup()});
+		$('#b03').click(function () {messageRender.messagePopup()});
+		$('#logout').click(function (){jso_wipe(); window.location = 'http://store.openrobot.net/'});
+		//Request API for user save list
+			$.oajax({
+				url: 'http://data.openrobot.net/user/index.php',
+				jso_provider: 'openrobot',
+				jso_allowia: true,
+				dataType: 'json',
+				success: function (data){
+					console.log(JSON.stringify(data));
+					accountPane.filemenu(data);
+				}
+		});
 	},
 	//Render file menu block, from json data
 	filemenu: function(jsonfiles){
@@ -101,30 +125,38 @@ var accountPane = {
 			var newfolder = $('<div class="usr_group" id="rf'+i+'">'+data.folder+'  <span id="rfb'+i+'">[+]</span></div>');
 			//Create Robot title div for each contents
 			$.each(data.robots, function(j,rdata){
-				newfolder.append($('<div class="usr_saves" id="rl'+j+'">'+rdata.title+'</div>'))
-			})
-			//Enable display toggling
-			newfolder.click(function(){
-				accountPane.openfolder(this);
+				var robot_title = $('<div class="usr_saves" id="rl'+j+'">'+rdata.title+'</div>');
+				newfolder.append(robot_title);
+				robot_title.click(function (){
+				$('.store').load("http://store.openrobot.net/html/store/robot.html",function (){
+					robotProfile.initfromID(rdata.id);
+				});
+				});
 			});
 			//Append directories to account tray
 			$('#atr2').append(newfolder);
+			//Enable display toggling
+			$('#rfb'+i).click(function(){
+				accountPane.openfolder(i);
+			});
 		})
 	}, 
 	//Hide folder contents and switch to [+]
-	closefolder: function(node){	
-		$('#'+node.id+'>.usr_saves').css('display','none');
-		$('#'+node.id+'>span').html('[+]');
-		$('#'+node.id).click(function(){
-			accountPane.openfolder(this);
+	closefolder: function(fid){	
+		$('#rf'+fid+'>.usr_saves').css('display','none');
+		$('#rf'+fid+'>span').html('[+]');
+		$('#rfb'+fid).unbind();
+		$('#rfb'+fid).click(function(){
+			accountPane.openfolder(fid);
 		});
 	},
 	//Show folder contents and switch to [-]
-	openfolder: function(node){	
-		$('#'+node.id+'>.usr_saves').css('display','block');
-		$('#'+node.id+'>span').html('[-]');
-		$('#'+node.id).click(function(){
-			accountPane.closefolder(this);
+	openfolder: function(fid){	
+		$('#rf'+fid+'>.usr_saves').css('display','block');
+		$('#rf'+fid+'>span').html('[-]');
+		$('#rfb'+fid).unbind();
+		$('#rfb'+fid).click(function(){
+			accountPane.closefolder(fid);
 		});
 	},
 	add: function(act_node) {

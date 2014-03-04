@@ -8,9 +8,9 @@ if (!$con)
 $db_selected = mysql_select_db("open_app",$con);
 $user = mysql_real_escape_string($user,$con);
 $email = mysql_real_escape_string($email,$con);
-$reason = mysql_real_escape_string($reason,$con);
+$message = mysql_real_escape_string($message,$con);
 parse_str($_SERVER['QUERY STRING']);
-$sql = "INSERT INTO `beta_requests` (username, email, reason) VALUES ('$user', '$email', '$reason');";
+$sql = "INSERT INTO `beta_requests` (username, email, reason) VALUES ('$user', '$email', '$message');";
 header("Location: http://store.openrobot.net");
 //Make query
 $result = mysql_query($sql,$con);

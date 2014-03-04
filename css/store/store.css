@@ -7,6 +7,27 @@
 				display:block;	
 				position:relative;
 			}
+			.file_icon{
+				width:100px;
+				height:100px;
+				border:1px solid black;
+				border-radius:10px;
+			}
+			.file_box{
+				padding:5;
+				margin:20;
+				display:inline-block;
+			}
+			.promo_thumb{
+				width:220px;
+				height:80px;
+				display:inline-block;
+				text-align:center;
+				padding:20 10;
+				border:solid #cccccc 1;
+				border-radius:5px;
+				margin:10 0 10 10;
+			}
 			.nav_tray{
 				padding:10px;
 			}
@@ -71,8 +92,7 @@
 			}
 			.banner {
 				overflow: hidden;
-				width: 770px;
-				margin: 0px -1px;
+				width: 768px;
 				height: 256px;
 				display: block;
       }
@@ -129,6 +149,18 @@
 				width:290px;
 				resize:vertical;
 			}
+			.register_pop {
+				background: white;
+				border: 1px solid #00adee;
+				border-radius: 5px;
+				padding:5px;
+				position:absolute;
+				width:300px;
+				top:50%;
+				left:50%;
+				z-index:200;
+				margin:-150px -100px;
+			}
 			.pm_pop {
 				background: white;
 				border: 1px solid #00adee;
@@ -144,9 +176,7 @@
 			.fronttiles {
 				height:600px;
 				padding: 0 5px;
-				overflow-y:scroll;
 				z-index: 10;
-				overflow: -moz-scrollbars-vertical;
 			}
 			.bodywrap {
 			}
@@ -196,6 +226,7 @@
       .tray {
         overflow: hidden;
 				border-bottom: 1px solid #00adee;
+				border-top: 1px solid #00adee;
         vertical-align: middle;
         width: 768px;
         display: block-inline;	
@@ -209,21 +240,16 @@
 				padding: 0;
       }
       .store {
-				margin-top:-20px;
 				display:inline-block;
 				margin-bottom:130px;
 				z-index:5;
 				width: 768px;
 				border-right: 1px solid #00adee;
 				border-left: 1px solid #00adee;
+				border-top: 1px solid #00adee;
 				background-color:#eff5fa;
 				margin-bottom:0px;
 				box-shadow: 0px 0px 10px -5px #111111;
-				-webkit-touch-callout: none;
-				-webkit-user-select: none;
-				-khtml-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
 				user-select: none;
 				cursor:default;
       }
