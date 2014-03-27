@@ -1,0 +1,44 @@
+.user_profile_img{
+	width:200;
+	height:200;
+	border-radius:100;
+	margin:50 50 0 50;
+	display: inline-block;
+}
+.user_title{
+	background-color:white;
+	width:738;
+	padding: 10 0;
+	border-bottom:1px solid #00adde
+}
+.user_profile_info{
+	width: 388;
+	font-size: 24;
+	padding:15px;
+	border-radius:5px;
+}
+.trophy{
+	width:50;
+	height:50;
+	border: 1px solid gray;
+	border-radius:10;
+	display:inline-block;
+	margin: 0 10 0 0;
+}
+.trophy_shelf{
+	padding:15px;
+	margin: 15px 0;
+	border-radius:15;
+	border:1px solid gray;
+}
+.col01{
+	display:inline-block
+}
+.user_title{
+	display:inline-flex;
+	padding:15px;
+}
+.col02{
+	display:inline-block;
+}
+
