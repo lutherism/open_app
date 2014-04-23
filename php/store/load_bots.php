@@ -7,6 +7,7 @@ if (!$server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
     $server->getResponse()->send();
     die;
 }
+
 $token = $server->getAccessTokenData(OAuth2\Request::createFromGlobals());
 //init MySQL database info (not posted to git hub)
 include '/home1/open/public_html/open_app/php/mysql_config.php';
@@ -15,7 +16,7 @@ if (!$con)
   die('Could not connect: ' . mysql_error($con));
   }
 $db_selected = mysql_select_db("open_app",$con);
-$sql = "SELECT r.*, g.group_name FROM `robot_list` r LEFT JOIN (user_robot_groups g, user_robot_saves s) ON g.user = '{$token[2]}' AND g.group_name='Favorites'AND s.group_id=g.id AND r.id=s.robot_id;";
+$sql = "SELECT * FROM `robot_list` r;";
 //Make query
 $result = mysql_query($sql,$con);
 //Process query into json

@@ -14,7 +14,7 @@ var registerRender = {
 		//on button press, send message data to server
 		$('#submit').click(function (){
 		$.ajax({
-			url: 'http://store.openrobot.net/php/store/register.php',
+			url: 'http://store.openrobot.net/php/account/register.php',
 			data: {
 				user: $('#reg_username').val(),	
 				email: $('#reg_email').val(),	
@@ -26,6 +26,6 @@ var registerRender = {
 		})
 		});
 		//close popup by clicking outside
-		$('#upshadow').click(function () {$('.pm_pop, #upshadow').remove()});
+		$('#upshadow').click(function () {$('.register_pop, #upshadow').remove()});
  		}
 };
