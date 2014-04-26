@@ -9,9 +9,95 @@ var pageload = {
 				return;
 			}
 		//Init option sorters		
-		$('.options>>div').click(function () {$('.options>>div').attr('class','option_off'); this.setAttribute('class','option_on');});
-		$('#tileoptions>div').click(function () {$('#tileoptions').children().attr('class','option_off'); this.setAttribute('class','option_on');});
-
+		$('.options>>div').click(function () {$('.options>>div').attr('class','option_off'); $(this).addClass('option_on'); $(this).removeClass('option_off');});
+		$('#tileoptions>div').click(function () {$('#tileoptions').children().attr('class','option_off'); $(this).addClass('option_on'); $(this).removeClass('option_off');});
+		$("#tileop_new").click(function(){
+			console.log('new clicked');
+			$('#tr03').html('<span>loading...</span>');
+			var add="./php/store/anon_load_bots.php";
+			var robots;
+			$.ajax({
+				url:add,
+				jso_provider:'openrobot',
+				jso_allowia:true,
+				dataType: 'json',
+				success: function(data){
+					$('#tr03').empty();
+					var robots = new Array();
+					var counter = 0;
+			 // loop through the members and call .js files for rendering tiles and thumbs
+					data.sort(function(a, b){
+					 var nameA=a.id.toLowerCase(), nameB=b.id.toLowerCase()
+					 if (nameA < nameB) //sort string ascending
+						return 1 
+					 if (nameA > nameB)
+						return -1
+					 return 0 //default return value (no sorting)
+					});
+					$.each(data,function(i,dat){
+						tileRender.addTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+					});
+				}
+		 	});
+		});
+		$("#tileop_hot").click(function(){
+			console.log('hot clicked');
+			$('#tr03').html('<span>loading...</span>');
+			var add="./php/store/anon_load_bots.php";
+			var robots;
+			$.ajax({
+				url:add,
+				jso_provider:'openrobot',
+				jso_allowia:true,
+				dataType: 'json',
+				success: function(data){
+					$('#tr03').empty();
+					var robots = new Array();
+					var counter = 0;
+			 // loop through the members and call .js files for rendering tiles and thumbs
+					data.sort(function(a, b){
+					 var nameA=a.rating.toLowerCase(), nameB=b.rating.toLowerCase()
+					 if (nameA < nameB) //sort string ascending
+						return -1 
+					 if (nameA > nameB)
+						return 1
+					 return 0 //default return value (no sorting)
+					});
+					$.each(data,function(i,dat){
+						tileRender.addTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+					});
+				}
+		 	});
+		});
+		$("#tileop_alpha").click(function(){
+			console.log('alpha clicked');
+			$('#tr03').html('<span>loading...</span>');
+			var add="./php/store/anon_load_bots.php";
+			var robots;
+			$.ajax({
+				url:add,
+				jso_provider:'openrobot',
+				jso_allowia:true,
+				dataType: 'json',
+				success: function(data){
+					$('#tr03').empty();
+					var robots = new Array();
+					var counter = 0;
+			 // loop through the members and call .js files for rendering tiles and thumbs
+					data.sort(function(a, b){
+					 var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
+					 if (nameA < nameB) //sort string ascending
+						return -1 
+					 if (nameA > nameB)
+						return 1
+					 return 0 //default return value (no sorting)
+					});
+					$.each(data,function(i,dat){
+						tileRender.addTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+					});
+				}
+		 	});
+		});
 		//Load Robots from API
 		loadrobots.loader();
 
@@ -26,8 +112,95 @@ var pageload = {
 	//init function when logged out
 	anon_store: function (){
 		//Init option sorters		
-		$('.options>>div').click(function () {$('.options>>div').attr('class','option_off'); this.setAttribute('class','option_on');});
-		$('#tileoptions>div').click(function () {$('#tileoptions').children().attr('class','option_off'); this.setAttribute('class','option_on');});
+		$('.options>>div').click(function () {$('.options>>div').attr('class','option_off'); $(this).addClass('option_on'); $(this).removeClass('option_off');});
+		$('#tileoptions>div').click(function () {$('#tileoptions').children().attr('class','option_off'); $(this).addClass('option_on'); $(this).removeClass('option_off');});
+		$("#tileop_new").click(function(){
+			console.log('new clicked');
+			$('#tr03').html('<span>loading...</span>');
+			var add="./php/store/anon_load_bots.php";
+			var robots;
+			$.ajax({
+				url:add,
+				jso_provider:'openrobot',
+				jso_allowia:true,
+				dataType: 'json',
+				success: function(data){
+					$('#tr03').empty();
+					var robots = new Array();
+					var counter = 0;
+			 // loop through the members and call .js files for rendering tiles and thumbs
+					data.sort(function(a, b){
+					 var nameA=a.id.toLowerCase(), nameB=b.id.toLowerCase()
+					 if (nameA < nameB) //sort string ascending
+						return 1 
+					 if (nameA > nameB)
+						return -1
+					 return 0 //default return value (no sorting)
+					});
+					$.each(data,function(i,dat){
+						tileRender.addAnonTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+					});
+				}
+		 	});
+		});
+		$("#tileop_hot").click(function(){
+			console.log('hot clicked');
+			$('#tr03').html('<span>loading...</span>');
+			var add="./php/store/anon_load_bots.php";
+			var robots;
+			$.ajax({
+				url:add,
+				jso_provider:'openrobot',
+				jso_allowia:true,
+				dataType: 'json',
+				success: function(data){
+					$('#tr03').empty();
+					var robots = new Array();
+					var counter = 0;
+			 // loop through the members and call .js files for rendering tiles and thumbs
+					data.sort(function(a, b){
+					 var nameA=a.rating.toLowerCase(), nameB=b.rating.toLowerCase()
+					 if (nameA < nameB) //sort string ascending
+						return -1 
+					 if (nameA > nameB)
+						return 1
+					 return 0 //default return value (no sorting)
+					});
+					$.each(data,function(i,dat){
+						tileRender.addAnonTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+					});
+				}
+		 	});
+		});
+		$("#tileop_alpha").click(function(){
+			console.log('alpha clicked');
+			$('#tr03').html('<span>loading...</span>');
+			var add="./php/store/anon_load_bots.php";
+			var robots;
+			$.ajax({
+				url:add,
+				jso_provider:'openrobot',
+				jso_allowia:true,
+				dataType: 'json',
+				success: function(data){
+					$('#tr03').empty();
+					var robots = new Array();
+					var counter = 0;
+			 // loop through the members and call .js files for rendering tiles and thumbs
+					data.sort(function(a, b){
+					 var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
+					 if (nameA < nameB) //sort string ascending
+						return -1 
+					 if (nameA > nameB)
+						return 1
+					 return 0 //default return value (no sorting)
+					});
+					$.each(data,function(i,dat){
+						tileRender.addAnonTile(new Robot(dat.id,dat.title,dat.artist,dat.image,dat.rating,dat.summary), 'tr03', dat.group_name);
+					});
+				}
+		 	});
+		});
 		//Load Robots from test.json
 		loadrobots.anon_loader();
 		$('#tr04').append(

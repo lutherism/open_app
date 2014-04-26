@@ -4,3 +4,10 @@
 </FilesMatch>
 AddType application/x-httpd-php53 .php
 #AddType application/x-httpd-php53 .php
+
+# Google Analytics Integration - Added by cPanel.
+<IfModule mod_substitute.c>
+AddOutputFilterByType SUBSTITUTE text/html
+Substitute "s|(<script type='text/javascript' src='/google_analytics_auto.js'></script>)?</head>|<script src='/google_analytics_auto.js'></script></head>|i"
+</IfModule>
+# END Google Analytics Integration
