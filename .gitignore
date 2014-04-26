@@ -1,3 +1,4 @@
 #contains mysql password
 mysql_config.php
 chrome-extension/
+google_analytics_auto.js
